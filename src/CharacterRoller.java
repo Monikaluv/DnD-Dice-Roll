@@ -1,3 +1,7 @@
+import java.util.Arrays;
+
+import Dice.*;
+
 public class CharacterRoller
 {
     public CharacterRoller()
@@ -5,10 +9,31 @@ public class CharacterRoller
 
     }
 
-    public int[] StatRoll()
+    private int StatRoll()
     {
-        int[] arr = new int[6];
-        
-        return arr;
+        D6 dice = new D6();
+        int stat = 0;
+
+        int[] statarr = new int[4];
+        for(int i=0; i<statarr.length; i++)
+        {
+            statarr[i] = dice.RollDice();
+        }
+        Arrays.sort(statarr);
+        for(int i=1; i<statarr.length;i++)
+        {
+            stat += statarr[i];
+        }
+        return stat;
+    }
+
+    public int[] StatArrayRoll()
+    {
+        int[] array = new int[6];
+        for(int i = 0; i < array.length;i++)
+        {
+            array[i] = StatRoll();
+        }
+        return array;
     }
 }
