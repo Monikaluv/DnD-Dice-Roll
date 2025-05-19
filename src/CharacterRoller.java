@@ -4,6 +4,7 @@ import Dice.*;
 
 public class CharacterRoller
 {
+    int[] array = new int[6];
     public CharacterRoller()
     {
 
@@ -29,11 +30,26 @@ public class CharacterRoller
 
     public int[] StatArrayRoll()
     {
-        int[] array = new int[6];
         for(int i = 0; i < array.length;i++)
         {
             array[i] = StatRoll();
         }
         return array;
+    }
+
+    @Override
+    public String toString()
+    {
+        String returnString = "[";
+        for(int i=0; i<array.length;i++)
+        {
+            returnString += Integer.toString(array[i]);
+            if(i!=array.length-1)
+            {
+                returnString += ", ";
+            }
+        }
+        returnString += "]";
+        return returnString;
     }
 }
