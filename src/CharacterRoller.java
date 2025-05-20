@@ -30,11 +30,17 @@ public class CharacterRoller
 
     public int[] StatArrayRoll()
     {
+        clearArr();
         for(int i = 0; i < array.length;i++)
         {
             array[i] = StatRoll();
         }
         return array;
+    }
+
+    private void clearArr()
+    {
+        array = new int[]{0,0,0,0,0,0};
     }
 
     @Override
