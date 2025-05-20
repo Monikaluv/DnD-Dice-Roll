@@ -58,4 +58,9 @@ public class CharacterRoller
         returnString += "]";
         return returnString;
     }
+
+    public void testRoll()
+    {
+        System.out.println(StatRoll());
+    }
 }
