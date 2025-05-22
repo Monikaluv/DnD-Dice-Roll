@@ -11,8 +11,9 @@ public class Programm
         scan.close();
     }
 
-    public static void navigate(String msg) throws InterruptedException
+    public static void navigate(String answ) throws InterruptedException
     {
+        String msg = answ.toUpperCase();
         switch(msg)
         {
             case "DR":
@@ -33,13 +34,13 @@ public class Programm
         CharacterRoller roller = new CharacterRoller();
         roller.StatArrayRoll();
         System.out.print("Rolling Array");
-        Thread.sleep(500);
+        Thread.sleep(250);
         System.out.print(".");
-        Thread.sleep(500);
+        Thread.sleep(250);
         System.out.print(".");
-        Thread.sleep(500);
+        Thread.sleep(250);
         System.out.print(".\n");
-        Thread.sleep(500);
+        Thread.sleep(250);
         System.out.println(roller.toString());
         Thread.sleep(500);
         RollAgainQuestion();
@@ -49,7 +50,7 @@ public class Programm
     {
         System.out.println("Do you want to roll again? y/n");
         Scanner scanner = new Scanner(System.in);
-        String token = scanner.next();
+        String token = scanner.next().toLowerCase();
 
         if(token.equals(new String("y")))
         {
@@ -71,7 +72,8 @@ public class Programm
     {
         System.out.println("Which dice do you want to roll? D4/D6/D8/D10/D12/D20/D100/EXIT");
         Scanner scan = new Scanner(System.in);
-        String answer = scan.next();
+        String answer = scan.next().toUpperCase();
+
         switch(answer)
         {
             case "D4":
@@ -113,7 +115,7 @@ public class Programm
                 throw new IllegalArgumentException();                                                      
         }
         System.out.println("Roll again? y/n");
-        String answer2 = scan.next();
+        String answer2 = scan.next().toLowerCase();
         ReRoll(answer2);
         scan.close();
     }
