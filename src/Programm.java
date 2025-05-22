@@ -62,5 +62,6 @@ public class Programm
             scanner.close();
             throw new InvalidArgumentException("Not a valid answer!");
         }
+        scanner.close();
     }
 }
