@@ -1,4 +1,3 @@
 *.jar
 /bin
-src/test.java
 /build
