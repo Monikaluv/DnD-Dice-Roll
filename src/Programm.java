@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import Dice.*;
 
 public class Programm 
 {
@@ -15,18 +16,19 @@ public class Programm
         switch(msg)
         {
             case "DR":
-                System.out.println("WIP");
-                System.exit(0);
+                DiceRoll();
                 break;
             case "MA":
-                Roll();
+                ManualArray();
                 break;
             case "EXIT":
                 System.exit(0);
+            default:
+                throw new IllegalArgumentException("Not a valid option!");    
         }
     }
 
-    public static void Roll() throws InterruptedException
+    public static void ManualArray() throws InterruptedException
     {
         CharacterRoller roller = new CharacterRoller();
         roller.StatArrayRoll();
@@ -51,7 +53,7 @@ public class Programm
 
         if(token.equals(new String("y")))
         {
-            Roll();
+            ManualArray();
         }
         else if(token.equals(new String("n")))
         {
@@ -63,5 +65,70 @@ public class Programm
             throw new InvalidArgumentException("Not a valid answer!");
         }
         scanner.close();
+    }
+
+    public static void DiceRoll() throws InterruptedException
+    {
+        System.out.println("Which dice do you want to roll? D4/D6/D8/D10/D12/D20/D100/EXIT");
+        Scanner scan = new Scanner(System.in);
+        String answer = scan.next();
+        switch(answer)
+        {
+            case "D4":
+                Dice d4 = new D4();
+                System.out.println(d4.RollDice());
+                break;
+            case "D6":
+                Dice d6 = new D6();
+                System.out.println(d6.RollDice());
+                break;
+            case "D8":
+                Dice d8 = new D8();
+                System.out.println(d8.RollDice());
+                break;
+            case "D10":
+                Dice d10 = new D10();
+                System.out.println(d10.RollDice());
+                break;
+            case "D12":
+                Dice d12 = new D12();
+                System.out.println(d12.RollDice());
+                break;
+            case "D20":
+                Dice d20 = new D20();
+                System.out.println(d20.RollDice());
+                break;
+            case "D100":
+                Dice d100 = new D100();
+                System.out.println(d100.RollDice());
+                break;
+            case "BACK":
+                launch();
+                break;
+            case "EXIT":
+                System.exit(0);
+                break;      
+            default:
+                scan.close();
+                throw new IllegalArgumentException();                                                      
+        }
+        System.out.println("Roll again? y/n");
+        String answer2 = scan.next();
+        ReRoll(answer2);
+        scan.close();
+    }
+
+    public static void ReRoll(String msg) throws InterruptedException
+    {
+        switch(msg)
+        {
+            case "y":
+                DiceRoll();
+                break;
+            case "n":
+                launch();
+            default:
+                throw new InvalidArgumentException();        
+        }
     }
 }
