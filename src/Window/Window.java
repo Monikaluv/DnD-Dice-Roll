@@ -6,7 +6,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Program.*;
 
 public class Window
 {
@@ -33,7 +36,7 @@ public class Window
         diceButton.setText("Die");
         arrButton.setText("Manual Array");
         exitButton.setText("Exit");
-        setupButtons(diceButton, arrButton, exitButton);
+        setupMainButtons(diceButton, arrButton, exitButton);
         
         JPanel[][] panelholder = new JPanel[i][j];
 
@@ -66,9 +69,26 @@ public class Window
 
     public void ArrayScreen()
     {
-        int i = 0;
-        int j = 0;
+        int i = 5;
+        int j = 3;
         GridLayout arrayLayout = new GridLayout(i, j);
+        JButton RollButton = new JButton();
+        RollButton.setText("Roll");
+        JLabel RollLabel = new JLabel();
+        setupArrayButtons(RollButton, RollLabel);
+
+        JPanel[][] panelholder = new JPanel[i][j];
+        for(int m = 0; m < i; m++)
+        {
+            for(int n = 0; n < j; n++)
+            {
+                panelholder[m][n] = new JPanel();
+                window.add(panelholder[m][n]);
+            }
+        }
+
+        panelholder[1][1].add(RollButton);
+        panelholder[1][3].add(RollLabel);
 
         window.setLayout(arrayLayout);
     }
@@ -78,7 +98,12 @@ public class Window
         window.dispose();
     }
 
-    private void setupButtons(JButton varDie, JButton varArr, JButton varExit)
+    private void Roll(JLabel varLabel)
+    {
+        
+    }
+
+    private void setupMainButtons(JButton varDie, JButton varArr, JButton varExit)
     {
         varDie.addActionListener(new ActionListener() {
 
@@ -97,12 +122,23 @@ public class Window
             }
             
         });
-
         varExit.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 exit();
+            }
+            
+        });
+    }
+
+    private void setupArrayButtons(JButton varRoll, JLabel varLabel)
+    {
+        varRoll.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Roll(varLabel);
             }
             
         });
