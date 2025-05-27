@@ -27,6 +27,8 @@ public class Window
 
     public void setup(int i, int j)
     {
+        window.getContentPane().removeAll();
+        window.validate();
         grid = new GridLayout(i,j);
         window.setLayout(grid);
         JButton diceButton = new JButton();
@@ -69,13 +71,21 @@ public class Window
 
     public void ArrayScreen()
     {
-        int i = 5;
+        window.getContentPane().removeAll();
+        window.validate();
+        int i = 6;
         int j = 3;
         GridLayout arrayLayout = new GridLayout(i, j);
+
         JButton RollButton = new JButton();
         RollButton.setText("Roll");
+        JButton BackButton = new JButton();
+        BackButton.setText("Back");
         JLabel RollLabel = new JLabel();
-        setupArrayButtons(RollButton, RollLabel);
+
+        setupArrayButtons(RollButton, RollLabel, BackButton);
+
+        window.setLayout(arrayLayout);
 
         JPanel[][] panelholder = new JPanel[i][j];
         for(int m = 0; m < i; m++)
@@ -88,9 +98,12 @@ public class Window
         }
 
         panelholder[1][1].add(RollButton);
-        panelholder[1][3].add(RollLabel);
+        panelholder[3][1].add(RollLabel);
+        panelholder[5][1].add(BackButton);
 
-        window.setLayout(arrayLayout);
+        window.setSize(500, 500);
+        window.setLocationRelativeTo(null);
+        window.setVisible(true);        
     }
 
     public void exit()
@@ -100,7 +113,9 @@ public class Window
 
     private void Roll(JLabel varLabel)
     {
-        
+        CharacterRoller roller = new CharacterRoller();
+        roller.StatArrayRoll();
+        varLabel.setText(roller.toString());
     }
 
     private void setupMainButtons(JButton varDie, JButton varArr, JButton varExit)
@@ -132,13 +147,22 @@ public class Window
         });
     }
 
-    private void setupArrayButtons(JButton varRoll, JLabel varLabel)
+    private void setupArrayButtons(JButton varRoll, JLabel varLabel, JButton varBack)
     {
         varRoll.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 Roll(varLabel);
+            }
+            
+        });
+
+        varBack.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setup(5, 5);
             }
             
         });
