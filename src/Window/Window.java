@@ -1,6 +1,8 @@
 package Window;
 import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -31,6 +33,7 @@ public class Window
         diceButton.setText("Die");
         arrButton.setText("Manual Array");
         exitButton.setText("Exit");
+        setupButtons(diceButton, arrButton, exitButton);
         
         JPanel[][] panelholder = new JPanel[i][j];
 
@@ -53,16 +56,55 @@ public class Window
 
     public void DiceScreen()
     {
+        int i = 0;
+        int j = 0;
+        GridLayout dieLayout = new GridLayout(i, j);
+        
 
+        window.setLayout(dieLayout);
     }
 
     public void ArrayScreen()
     {
+        int i = 0;
+        int j = 0;
+        GridLayout arrayLayout = new GridLayout(i, j);
 
+        window.setLayout(arrayLayout);
     }
 
     public void exit()
     {
         window.dispose();
+    }
+
+    private void setupButtons(JButton varDie, JButton varArr, JButton varExit)
+    {
+        varDie.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              DiceScreen();
+            }
+            
+        });
+
+        varArr.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ArrayScreen();
+            }
+            
+        });
+
+        varExit.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                exit();
+            }
+            
+        });
     }
 }
