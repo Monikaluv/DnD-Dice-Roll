@@ -1,3 +1,4 @@
+package Program;
 public class InvalidArgumentException extends RuntimeException
 {
     public InvalidArgumentException()
