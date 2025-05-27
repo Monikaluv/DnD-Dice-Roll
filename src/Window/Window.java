@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Dice.*;
 import Program.*;
 
 public class Window
@@ -166,11 +167,53 @@ public class Window
         window.dispose();
     }
 
-    private void Roll(JLabel varLabel)
+    private void RollArr(JLabel varLabel)
     {
         CharacterRoller roller = new CharacterRoller();
         roller.StatArrayRoll();
         varLabel.setText(roller.toString());
+    }
+
+    private void RollD4(JLabel varLabel)
+    {
+        Dice dice = new D4();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+
+    private void RollD6(JLabel varLabel)
+    {
+        Dice dice = new D6();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+
+    private void RollD8(JLabel varLabel)
+    {
+        Dice dice = new D8();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+
+    private void RollD10(JLabel varLabel)
+    {
+        Dice dice = new D10();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+    
+    private void RollD12(JLabel varLabel)
+    {
+        Dice dice = new D12();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+
+    private void RollD20(JLabel varLabel)
+    {
+        Dice dice = new D20();
+        varLabel.setText(Integer.toString(dice.RollDice()));
+    }
+
+    private void RollD100(JLabel varLabel)
+    {
+        Dice dice = new D100();
+        varLabel.setText(Integer.toString(dice.RollDice()));
     }
 
     private void setupMainButtons(JButton varDie, JButton varArr, JButton varExit)
@@ -208,7 +251,7 @@ public class Window
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Roll(varLabel);
+                RollArr(varLabel);
             }
             
         });
@@ -231,7 +274,73 @@ public class Window
             public void actionPerformed(ActionEvent e) {
                 setup(3, 5);
             }
-            
+        });
+
+        varButtons[0].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD4(varLabels[0]);
+            }
+        });
+
+        varButtons[1].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD6(varLabels[1]);
+            }
+        });
+
+        varButtons[2].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD8(varLabels[2]);
+            }
+        });
+
+        varButtons[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD10(varLabels[3]);
+            }
+        });
+
+        varButtons[4].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD12(varLabels[4]);
+            }
+        });
+
+        varButtons[5].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD20(varLabels[5]);
+            }
+        });
+
+        varButtons[6].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                RollD100(varLabels[6]);
+            }
+        });
+
+        varButtons[8].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                for(int i = 0; i < varLabels.length; i++)
+                {
+                    varLabels[i].setText("");
+                }
+            }
         });
     }
 }
