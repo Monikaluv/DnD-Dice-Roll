@@ -22,7 +22,7 @@ public class Window
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
 
-        setup(5,5);
+        setup(3,5);
     }
 
     public void setup(int i, int j)
@@ -162,7 +162,7 @@ public class Window
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                setup(5, 5);
+                setup(3, 5);
             }
             
         });
