@@ -1,7 +1,7 @@
 package Program;
 import java.util.Arrays;
 
-import Dice.*;
+import Dice.D6;
 
 public class CharacterRoller
 {
