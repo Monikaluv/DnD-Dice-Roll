@@ -32,6 +32,7 @@ public class Window
         window.validate();
         grid = new GridLayout(i,j);
         window.setLayout(grid);
+        
         JButton diceButton = new JButton();
         JButton arrButton = new JButton();
         JButton exitButton = new JButton();
