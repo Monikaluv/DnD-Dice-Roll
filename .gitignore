@@ -2,3 +2,4 @@
 /bin
 /build
 testentry.java
+/Simulation/*.java
