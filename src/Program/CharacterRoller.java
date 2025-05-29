@@ -7,9 +7,7 @@ public class CharacterRoller
 {
     int[] array = new int[6];
     public CharacterRoller()
-    {
-
-    }
+    {}
 
     private int StatRoll()
     {
