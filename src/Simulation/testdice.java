@@ -4,7 +4,7 @@ import Dice.*;
 
 public class testdice 
 {
-    int[] array = new int[7];
+    static int[] array = new int[7];
     protected static String testeverydice()
     {
         Dice d4 = new D4();
@@ -14,12 +14,20 @@ public class testdice
         Dice d12 = new D12();
         Dice d20 = new D20();
         Dice d100 = new D100();
-        return null; 
+
+        array[0] = d4.RollDice();
+        array[1] = d6.RollDice();
+        array[2] = d8.RollDice();
+        array[3] = d10.RollDice();
+        array[4] = d12.RollDice();
+        array[5] = d20.RollDice();
+        array[6] = d100.RollDice();
+
+        return DicetoString();
         
     }
-
-    @Override
-    public String toString()
+    
+    public static String DicetoString()
     {
         String returnString = "[";
         for(int i=0; i<array.length;i++)

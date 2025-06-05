@@ -12,6 +12,7 @@ public class testrun
         }
 
         System.out.println("Total avg = " + Double.toString(calcDoubleAvg(arr)));
+        
     }
 
     protected static double calcDoubleAvg(double[] arr)
