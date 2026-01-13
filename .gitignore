@@ -2,4 +2,5 @@
 /bin
 /build
 testentry.java
-/Simulation
+/test
+/test-lib
