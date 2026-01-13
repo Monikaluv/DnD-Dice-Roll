@@ -5,7 +5,7 @@ import Dice.D6;
 
 public class CharacterRoller
 {
-    int[] array = new int[6];
+    public final int[] array = new int[6];
     public CharacterRoller()
     {}
 
@@ -37,9 +37,12 @@ public class CharacterRoller
         return array;
     }
 
-    private void clearArr()
+    public void clearArr()
     {
-        array = new int[]{0,0,0,0,0,0};
+        for(int i = 0; i<array.length;i++)
+            {
+                array[i] = 0;
+            }
     }
 
     @Override
